@@ -1,0 +1,12 @@
+D:\Blog\Back-end\Blog-back-end\Application\bin\Debug\netcoreapp3.1\Application.deps.json
+D:\Blog\Back-end\Blog-back-end\Application\bin\Debug\netcoreapp3.1\Application.dll
+D:\Blog\Back-end\Blog-back-end\Application\bin\Debug\netcoreapp3.1\Application.pdb
+D:\Blog\Back-end\Blog-back-end\Application\obj\Debug\netcoreapp3.1\Application.csprojAssemblyReference.cache
+D:\Blog\Back-end\Blog-back-end\Application\obj\Debug\netcoreapp3.1\Application.AssemblyInfoInputs.cache
+D:\Blog\Back-end\Blog-back-end\Application\obj\Debug\netcoreapp3.1\Application.AssemblyInfo.cs
+D:\Blog\Back-end\Blog-back-end\Application\obj\Debug\netcoreapp3.1\Application.dll
+D:\Blog\Back-end\Blog-back-end\Application\obj\Debug\netcoreapp3.1\Application.pdb
+D:\Blog\Back-end\Blog-back-end\Application\bin\Debug\netcoreapp3.1\Infrastructure.dll
+D:\Blog\Back-end\Blog-back-end\Application\bin\Debug\netcoreapp3.1\Infrastructure.pdb
+D:\Blog\Back-end\Blog-back-end\Application\obj\Debug\netcoreapp3.1\Application.csproj.CopyComplete
+D:\Blog\Back-end\Blog-back-end\Application\obj\Debug\netcoreapp3.1\Application.csproj.CoreCompileInputs.cache
