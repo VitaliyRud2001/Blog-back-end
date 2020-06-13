@@ -12,6 +12,8 @@ namespace Infrastructure.Models
 
         public string Body { get; set; }
 
+        public string BodyMarkDown { get; set; }
+
         public string ImagePath { get; set; }
 
         public DateTime CreatedDate { get; set; }

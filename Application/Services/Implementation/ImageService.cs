@@ -36,7 +36,7 @@ namespace Application.Services.Implementation
             }
             string uniqueFileName = Guid.NewGuid().ToString() + "_" + img.FileName;
             string filePath = Path.Combine(uploadsFolder, uniqueFileName);
-            var dbPath = Path.Combine(uploadsFolder, uniqueFileName);
+            var dbPath = Path.Combine("uploads", uniqueFileName);
             using (var fileStream = new FileStream(filePath, FileMode.Create))
             {
                 await img.CopyToAsync(fileStream);

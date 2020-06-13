@@ -7,6 +7,7 @@ using Application.Dtos.QueryParams.Book;
 using Application.MapperProfiles;
 using Application.Services.Interface;
 using AutoMapper;
+using Blog_back_end.FilterExceptions;
 using Infrastructure;
 using Infrastructure.GenericRepositories;
 using Infrastructure.Models;
@@ -31,6 +32,13 @@ namespace Blog_back_end.Controllers
         {
             var paginationDto = await _postService.GetAllAsync(param);
             return paginationDto;
+        }
+        [HttpGet("{postId}")]
+        [PostExpceptionFilter]
+        public async Task<ActionResult<PostGetDto>> GetById([FromRoute] int postId)
+        {
+            var post = await _postService.GetPostByIdAsync(postId);
+            return post;
         }
 
         [HttpPost]

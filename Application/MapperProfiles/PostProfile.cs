@@ -23,7 +23,7 @@ namespace Application.MapperProfiles
             CreateMap<UserDto, User>().ReverseMap();
 
             CreateMap<TagDto, PostTag>()
-                .ForMember(p => p.TagId, opt => opt.MapFrom(dto => dto.TagId));
+                .ForMember(p => p.TagId, opt => opt.MapFrom(dto => dto.Id));
                
 
             CreateMap<PostCreateDto, Post>()

@@ -47,12 +47,17 @@ namespace Blog_back_end
             services.AddScoped<IPaginationService, PaginationService>();
             services.AddScoped<IImageService, ImageService>();
             services.AddScoped<IPostService, PostService>();
-            
+            services.AddScoped<IUserService, UserService>();
 
+            services.AddCors(options =>
+            {
+                options.AddPolicy("CorsPolicy", builder => builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader().Build());
+            });
 
             var mappingConfig = new MapperConfiguration(mc =>
             {
                 mc.AddProfile(new PostProfile());
+                mc.AddProfile(new UserProfile());
             });
             IMapper mapper = mappingConfig.CreateMapper();
             services.AddSingleton(mapper);
@@ -95,6 +100,7 @@ namespace Blog_back_end
             app.UseHttpsRedirection();
 
             app.UseRouting();
+            app.UseCors("CorsPolicy");
 
             app.UseAuthorization();
 

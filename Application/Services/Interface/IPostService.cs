@@ -11,5 +11,7 @@ namespace Application.Services.Interface
     {
         Task<PaginationDto<PostGetDto>> GetAllAsync(PostQueryParams queryParams);
         Task<PostGetDto> CreatePostAsync(PostCreateDto postCreateDto);
+
+        Task<PostGetDto> GetPostByIdAsync(int id);
     }
 }

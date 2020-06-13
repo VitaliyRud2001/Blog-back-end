@@ -6,6 +6,7 @@ using Application.Services.Interface;
 using AutoMapper;
 using Infrastructure.GenericRepositories;
 using Infrastructure.Models;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -35,7 +36,10 @@ namespace Application.Services.Implementation
         {
             var posts = _postRepository.GetAll();
             posts = posts.Include(p => p.User).Include(p => p.Tags).ThenInclude(p => p.Tag);
-            posts = posts.OrderBy(queryParams.SortableParams);
+            if (queryParams.SortableParams!=null)
+            {
+                posts = posts.OrderBy(queryParams.SortableParams);
+            }
             posts = GetFilteredQuery(posts, queryParams);
             var page = await _paginationService.GetPageAsync<PostGetDto, Post>(posts, queryParams);
 
@@ -52,6 +56,14 @@ namespace Application.Services.Implementation
             _postRepository.Add(post);
             await _postRepository.SaveChangesAsync();
             return _mapper.Map<PostGetDto>(post);
+        }
+
+        public async Task<PostGetDto> GetPostByIdAsync(int id)
+        {
+            var post = await _postRepository.FindByCondition(post => post.Id == id);
+            if (post == null) throw new KeyNotFoundException("Post by id was not found");
+            var postDto = _mapper.Map<PostGetDto>(post);
+            return postDto;
         }
 
         private IQueryable<Post> GetFilteredQuery(IQueryable<Post> query, PostQueryParams bookQueryParams)
