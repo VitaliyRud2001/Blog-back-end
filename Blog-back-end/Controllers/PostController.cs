@@ -47,6 +47,11 @@ namespace Blog_back_end.Controllers
             var postAdded = await _postService.CreatePostAsync(param);
             return postAdded;
         }
+        [HttpDelete]
+        public async Task<ActionResult<PostGetDto>> DeletePost()
+        {
+            throw new Exception();
+        }
 
     }
 }
